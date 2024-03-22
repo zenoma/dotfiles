@@ -34,8 +34,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 150
-vim.opt.timeoutlen = 300
+vim.opt.updatetime = 50
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -64,4 +63,5 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
--- vim: ts=2 sts=2 sw=2 et
+
+vim.opt.smartindent = true
