@@ -71,10 +71,10 @@ return {
       }),
     }
 
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]o to [D]eclatarion' })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]o to [d]efinition' })
     vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = '[G]o to [i]implementation' })
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 
     vim.diagnostic.config {
