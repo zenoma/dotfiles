@@ -5,8 +5,6 @@
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, for help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -15,6 +13,9 @@ vim.opt.mouse = 'a'
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -22,9 +23,13 @@ vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.showbreak = string.rep(' ', 3)
 
 -- Disable wrap line
-vim.opt.wrap = false
+vim.opt.wrap = true
+
+vim.opt.autoindent = true
 
 -- Save undo history
 vim.opt.undofile = true
@@ -37,7 +42,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 50
+vim.opt.updatetime = 1000
 
 -- Decrease mapped sequence wait time
 -- Displays wich-key popup sooner
@@ -72,3 +77,13 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
+vim.opt.foldmethod = 'marker'
+vim.opt.foldlevel = 0
+vim.opt.modelines = 1
+
+vim.opt.belloff = 'all'
