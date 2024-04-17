@@ -9,6 +9,10 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('i', 'jj', '<Esc>')
 
+-- Move line
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+
 -- LSP keymapis
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat current file' })
 

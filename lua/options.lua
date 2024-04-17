@@ -27,7 +27,7 @@ vim.opt.linebreak = true
 vim.opt.showbreak = string.rep(' ', 3)
 
 -- Disable wrap line
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.autoindent = true
 
