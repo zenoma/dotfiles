@@ -21,6 +21,21 @@ vim.opt.cmdheight = 1
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
+if vim.fn.has 'wsl' == 1 then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
+
 -- Enable break indent
 vim.opt.breakindent = true
 vim.opt.linebreak = true
@@ -42,7 +57,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays wich-key popup sooner
