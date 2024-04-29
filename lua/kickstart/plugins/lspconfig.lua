@@ -16,12 +16,16 @@ return {
   config = function()
     local cmp = require 'cmp'
     local cmp_lsp = require 'cmp_nvim_lsp'
-    local capabilities = vim.tbl_deep_extend('force', {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+    local capabilities = vim.tbl_deep_extend('force', {}, vim.lsp.protocol.make_client_capabilities(),
+      cmp_lsp.default_capabilities())
 
     require('fidget').setup {}
     require('mason').setup()
     require('mason-lspconfig').setup {
       ensure_installed = {
+        'clangd',
+        'gopls',
+        'pyright',
         'lua_ls',
         'rust_analyzer',
         'tsserver',
@@ -70,6 +74,9 @@ return {
         { name = 'buffer' },
       }),
     }
+
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]o to [D]eclatarion' })
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]o to [d]efinition' })
