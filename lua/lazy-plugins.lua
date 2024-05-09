@@ -40,8 +40,6 @@ require('lazy').setup({
 
   require 'custom/plugins/ibl',
 
-  require 'custom/plugins/r-nvim',
-
   require 'custom/plugins/oil',
 
 }, {
