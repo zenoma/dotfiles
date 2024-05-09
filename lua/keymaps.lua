@@ -6,9 +6,6 @@ vim.cmd('command! -nargs=0 W w')
 vim.cmd('command! -nargs=0 Q q')
 vim.cmd('command! -nargs=0 Wq wq')
 
--- Directory commands
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go to file explorer' })
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')

@@ -41,6 +41,9 @@ require('lazy').setup({
   require 'custom/plugins/ibl',
 
   require 'custom/plugins/r-nvim',
+
+  require 'custom/plugins/oil',
+
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
