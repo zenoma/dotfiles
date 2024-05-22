@@ -1,7 +1,6 @@
 return {
   { -- Autoformat
     'stevearc/conform.nvim',
-    lazy = false,
     keys = {
       {
         '<leader>f',
@@ -12,6 +11,7 @@ return {
         desc = '[F]ormat buffer',
       },
     },
+    cmd = { 'ConformInfo' },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -30,4 +30,3 @@ return {
     },
   },
 }
--- vim: ts=2 sts=2 sw=2 et

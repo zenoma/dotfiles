@@ -38,8 +38,6 @@ end
 
 -- Enable break indent
 vim.opt.breakindent = true
-vim.opt.linebreak = true
-vim.opt.showbreak = string.rep(' ', 3)
 
 -- Disable wrap line
 vim.opt.wrap = false
@@ -56,9 +54,14 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
+-- Enable 24-bit color
+vim.opt.termguicolors = true
+
 -- Decrease update time
-vim.opt.updatetime = 300
-vim.opt.swapfile = false
+vim.opt.updatetime = 250
+
+-- Set completeopt to have a better completion experience
+-- vim.opt.completeopt = { 'menuone', 'noneselect' }
 
 -- Decrease mapped sequence wait time
 -- Displays wich-key popup sooner
@@ -89,17 +92,16 @@ vim.opt.colorcolumn = '80'
 -- Set tab config
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+vim.opt.shiftwidth = 4
 
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-
-vim.opt.foldmethod = 'marker'
-vim.opt.foldlevel = 0
-vim.opt.modelines = 1
-
+-- Set bell off
 vim.opt.belloff = 'all'
+
+-- Set fold settings
+vim.opt.foldcolumn = '0'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true

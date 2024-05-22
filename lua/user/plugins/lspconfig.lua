@@ -1,19 +1,19 @@
 return {
-  { -- LSP Configuration & Plugins
+  {
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPost' },
+    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      -- Plugin(s) and UI to automatically install LSPs to stdpath
+      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- Install lsp autocompletions
+      'hrsh7th/cmp-nvim-lsp',
 
-      -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', opts = {} },
+      -- Progress/Status update for LSP
+      { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -73,27 +73,56 @@ return {
         end,
       })
 
+      -- LSP servers and clients are able to communicate to each other what features they support.
+      --  By default, Neovim doesn't support everything that is in the LSP Specification.
+      --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+      --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      -- LSP servers to install (see list here: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers )
       local servers = {
         clangd = {},
         gopls = {},
         pyright = {},
         rust_analyzer = {},
-        tsserver = {},
+        bashls = {},
+        biome = {},
+        cssls = {},
+        gleam = {},
+        eslint = {
+          autostart = false,
+          cmd = { 'vscode-eslint-language-server', '--stdio', '--max-old-space-size=12288' },
+          settings = {
+            format = false,
+          },
+        },
+        html = {},
+        jsonls = {},
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
           settings = {
             Lua = {
-              completion = {
-                callSnippet = 'Replace',
+              runtime = { version = 'LuaJIT' },
+              workspace = {
+                checkThirdParty = false,
+                -- Tells lua_ls where to find all the Lua files that you have loaded
+                -- for your neovim configuration.
+                library = {
+                  '${3rd}/luv/library',
+                  unpack(vim.api.nvim_get_runtime_file('', true)),
+                },
               },
+              telemetry = { enabled = false },
             },
           },
         },
+        marksman = {},
+        ocamllsp = {},
+        nil_ls = {},
+        sqlls = {},
+        tailwindcss = {},
+        tsserver = {},
+        yamlls = {},
       }
 
       require('mason').setup()
@@ -113,7 +142,16 @@ return {
           end,
         },
       }
+
+      -- Configure borderd for LspInfo ui
+      require('lspconfig.ui.windows').default_options.border = 'rounded'
+
+      -- Configure diagnostics border
+      vim.diagnostic.config {
+        float = {
+          border = 'rounded',
+        },
+      }
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et

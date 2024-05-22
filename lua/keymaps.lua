@@ -2,9 +2,9 @@
 --  See `:help vim.keymap.set()`
 
 -- Human mistakes
-vim.cmd('command! -nargs=0 W w')
-vim.cmd('command! -nargs=0 Q q')
-vim.cmd('command! -nargs=0 Wq wq')
+vim.cmd 'command! -nargs=0 W w'
+vim.cmd 'command! -nargs=0 Q q'
+vim.cmd 'command! -nargs=0 Wq wq'
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -19,9 +19,8 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[F]ormat current file' })
 
 -- Diagnostic keymaps
-
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -70,5 +69,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- vim: ts=2 sts=2 sw=2 et

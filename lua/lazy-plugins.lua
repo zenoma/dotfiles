@@ -14,34 +14,35 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'numToStr/Comment.nvim', opts = {} },
 
-  require 'kickstart/plugins/cmp',
+  require 'user/plugins/cmp',
 
-  require 'kickstart/plugins/gitsigns',
+  require 'user/plugins/gitsigns',
 
-  require 'kickstart/plugins/which-key',
+  require 'user/plugins/which-key',
 
-  require 'kickstart/plugins/telescope',
+  require 'user/plugins/telescope',
 
-  require 'kickstart/plugins/lspconfig',
+  require 'user/plugins/lspconfig',
 
-  require 'kickstart/plugins/conform',
+  require 'user/plugins/lualine',
 
-  require 'kickstart/plugins/theme',
+  require 'user/plugins/conform',
 
-  require 'kickstart/plugins/todo-comments',
+  require 'user/plugins/theme',
 
-  require 'kickstart/plugins/mini',
+  require 'user/plugins/todo-comments',
 
-  require 'kickstart/plugins/treesitter',
+  require 'user/plugins/mini',
 
-  require 'custom/plugins/harpoon',
+  require 'user/plugins/treesitter',
 
-  require 'custom/plugins/trouble',
+  require 'user/plugins/harpoon',
 
-  require 'custom/plugins/ibl',
+  require 'user/plugins/trouble',
 
-  require 'custom/plugins/oil',
+  require 'user/plugins/ident-blankline',
 
+  require 'user/plugins/oil',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
