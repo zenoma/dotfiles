@@ -15,34 +15,21 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   require 'user/plugins/cmp',
-
-  require 'user/plugins/gitsigns',
-
-  require 'user/plugins/which-key',
-
-  require 'user/plugins/telescope',
-
-  require 'user/plugins/lspconfig',
-
-  require 'user/plugins/lualine',
-
   require 'user/plugins/conform',
-
-  require 'user/plugins/theme',
-
-  require 'user/plugins/todo-comments',
-
-  require 'user/plugins/mini',
-
-  require 'user/plugins/treesitter',
-
+  require 'user/plugins/gitsigns',
   require 'user/plugins/harpoon',
-
-  require 'user/plugins/trouble',
-
   require 'user/plugins/ident-blankline',
-
+  require 'user/plugins/lazygit',
+  require 'user/plugins/lspconfig',
+  require 'user/plugins/lualine',
+  require 'user/plugins/mini',
   require 'user/plugins/oil',
+  require 'user/plugins/telescope',
+  require 'user/plugins/theme',
+  require 'user/plugins/todo-comments',
+  require 'user/plugins/treesitter',
+  require 'user/plugins/trouble',
+  require 'user/plugins/which-key',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
