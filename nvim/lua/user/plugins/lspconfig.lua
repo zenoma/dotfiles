@@ -122,6 +122,7 @@ return {
         sqlls = {},
         tailwindcss = {},
         tsserver = {},
+        ts_ls = {},
         yamlls = {},
       }
 
