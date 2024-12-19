@@ -7,6 +7,12 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+vim.cmd([[
+  set notimeout
+  set fileencoding=utf-8 
+  set encoding=utf-8
+]])
+
 -- [[ Setting options ]]
 require 'options'
 
